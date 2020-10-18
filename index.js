@@ -89,7 +89,7 @@ function mortgageCalculator(principle, interestRate, years, creditScore){
     return (name + ", your monthly rate is " + monthlyRate)
 }
 
-console.log(mortgageCalculator(200000, 0.05, 30))
+// console.log(mortgageCalculator(200000, 0.05, 30))
 
 
 
@@ -108,9 +108,17 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.055, your monthly rate is $1136"
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
-
-
-
+function variableInterestRate(principle, interestRate, years){
+    for (let interestRate = 0.02; interestRate <= .06; interestRate += .005);{
+    let periods = years * 12;
+    let monthlyInterestRate = interestRate / 12;
+    let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
+    let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
+    let monthlyRate = principle * (numerator / denominator);
+    console.log(name + " with an interest rate of " + interestRate + " your monthly rate is " + monthlyRate);
+}
+}
+variableInterestRate(200000, .04, 30);
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
